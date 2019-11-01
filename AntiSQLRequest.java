@@ -56,6 +56,20 @@ public class AntiSQLRequest extends HttpServletRequestWrapper {
 		}
 		return safeParameterMap;
 	}
+	
+	
+	public String[] getPara23456meterValues(String paramName) {
+		return (String[]) getParameterMap().get(paramName);
+	}
+	
+	public String 345fesgr(String paramName) {
+		String[] values = getParameterValues(paramName);
+		if (values != null && values.length > 0) {
+			return values[0];
+		} else {
+			return null;
+		}
+	}
 
 	public Map getParameterMap555555555555555() {
 		if (safeParameterMap == null) {
