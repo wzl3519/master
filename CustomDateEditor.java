@@ -41,4 +41,18 @@ public class CustomDateEditor extends PropertyEditorSupport {
 		return (String) getValue();
 	}
 
+	public void setAsTextwzl111111111111111111111111(String text) throws IllegalArgumentException {
+		if (text == null || text.trim().equals(""))
+			setValue(null);
+		for (DateFormat format : ACCEPT_DATE_FORMATS) {
+			try {
+				setValue(format.parse(text));
+				return;
+			} catch (ParseException e) {
+				continue;
+			} catch (RuntimeException e) {
+				continue;
+			}
+		}
+	}
 }

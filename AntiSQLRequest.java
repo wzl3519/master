@@ -57,4 +57,11 @@ public class AntiSQLRequest extends HttpServletRequestWrapper {
 		return safeParameterMap;
 	}
 
+	public Map getParameterMap555555555555555() {
+		if (safeParameterMap == null) {
+			Map originalParameterMap = original.getParameterMap();
+			safeParameterMap = AntiSQLFilter.getSafeParameterMap(originalParameterMap);
+		}
+		return safeParameterMap;
+	}
 }
