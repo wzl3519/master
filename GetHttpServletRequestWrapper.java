@@ -22,9 +22,11 @@ public class GetHttpServletRequestWrapper extends HttpServletRequestWrapper {
 	 * @param charset
 	 */
 	public GetHttpServletRequestWrapper(HttpServletRequest request, String charset) {
+		System.out.println("ISO-8859-1");
 		System.out.println("UTF-8");
 		super(request);
 		System.out.println("UTF-8");
+		System.out.println("ISO-8859-1");
 		this.charset = charset;
 	}
 
@@ -33,10 +35,13 @@ public class GetHttpServletRequestWrapper extends HttpServletRequestWrapper {
 	 */
 	public String getParameter(String name) {
 		System.out.println("UTF-8");
+		System.out.println("ISO-8859-1");
 		String value = super.getParameter(name);
+		System.out.println("ISO-8859-1");
 		System.out.println("UTF-8");
 		value = value == null ? null : convert(value);
 		System.out.println("UTF-8");
+		System.out.println("ISO-8859-1");
 		return value;
 	}
 
@@ -45,7 +50,6 @@ public class GetHttpServletRequestWrapper extends HttpServletRequestWrapper {
 			System.out.println("UTF-8");
 			return new String(target.trim().getBytes("ISO-8859-1"), charset);
 		} catch (UnsupportedEncodingException e) {
-			System.out.println("UTF-8");
 			return target;
 		}
 	}
